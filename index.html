@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ForManon - Prévention et sensibilisation sur les maladies rares et les handicaps invisibles.">
+  <title>ForManon — Prévention & Sensibilisation</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">For<span>Manon</span> <span class="heart">💜</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#maladies">Maladies rares</a></li>
+        <li><a href="#recits">Récits</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger">☰</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="accueil" class="hero">
+    <div class="hero-content">
+      <h1>Rendre <span class="highlight">visible</span> l'invisible</h1>
+      <p>ForManon sensibilise et informe sur les maladies rares et les handicaps invisibles. Parce que ne pas voir, ne veut pas dire ne pas exister.</p>
+      <div class="hero-buttons">
+        <a href="#maladies" class="btn btn-primary">Découvrir les maladies</a>
+        <a href="#mission" class="btn btn-outline">Notre mission</a>
+      </div>
+    </div>
+    <div class="hero-wave"></div>
+  </section>
+
+  <!-- Statistiques -->
+  <section class="stats">
+    <div class="stat-item">
+      <h3 data-count="3000">0</h3>
+      <p>maladies rares recensées</p>
+    </div>
+    <div class="stat-item">
+      <h3 data-count="80">0</h3>
+      <p>% des maladies rares d'origine génétique</p>
+    </div>
+    <div class="stat-item">
+      <h3 data-count="3">0</h3>
+      <p>millions de personnes concernées en France</p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission" class="section">
+    <h2 class="section-title">Notre mission</h2>
+    <p class="section-subtitle">Sensibiliser, informer et soutenir</p>
+    <div class="mission-cards">
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Sensibiliser</h3>
+        <p>Faire connaître les handicaps invisibles souvent incompris ou ignorés au quotidien.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📚</div>
+        <h3>Informer</h3>
+        <p>Offrir des informations fiables et accessibles sur les maladies rares.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Soutenir</h3>
+        <p>Donner la parole aux personnes concernées à travers leurs récits.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Maladies -->
+  <section id="maladies" class="section section-alt">
+    <h2 class="section-title">Maladies rares & handicaps invisibles</h2>
+    <p class="section-subtitle">Cliquez pour en savoir plus</p>
+    <div class="disease-grid">
+      <a href="ehlers-danlos.html" class="disease-card">
+        <div class="disease-tag">Maladie rare</div>
+        <h3>Syndrome d'Ehlers-Danlos</h3>
+        <p>Une maladie génétique affectant les tissus conjonctifs, souvent invisible et invalidante.</p>
+        <span class="disease-link">En savoir plus →</span>
+      </a>
+      <div class="disease-card disease-card--soon">
+        <div class="disease-tag">À venir</div>
+        <h3>Fibromyalgie</h3>
+        <p>Douleurs chroniques diffuses, fatigue intense... un handicap invisible du quotidien.</p>
+        <span class="disease-link">Bientôt disponible</span>
+      </div>
+      <div class="disease-card disease-card--soon">
+        <div class="disease-tag">À venir</div>
+        <h3>Endométriose</h3>
+        <p>Une maladie gynécologique chronique longtemps sous-estimée et sous-diagnostiquée.</p>
+        <span class="disease-link">Bientôt disponible</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Récits -->
+  <section id="recits" class="section">
+    <h2 class="section-title">Récits de vie</h2>
+    <p class="section-subtitle">Des témoignages qui donnent une voix</p>
+    <div class="testimonial">
+      <blockquote>
+        « On me disait que j'étais trop jeune pour avoir mal. Aujourd'hui, je veux que plus personne n'ait à prouver sa douleur. »
+      </blockquote>
+      <cite>— Un témoignage à venir</cite>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section section-alt">
+    <h2 class="section-title">Nous contacter</h2>
+    <p class="section-subtitle">Une question, un témoignage à partager ?</p>
+    <form id="contact-form">
+      <input type="text" id="nom" placeholder="Votre nom" required>
+      <input type="email" id="email" placeholder="Votre email" required>
+      <textarea id="message" placeholder="Votre message" rows="5" required></textarea>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+    <p id="form-message"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">For<span>Manon</span> 💜</div>
+      <p>Rendre visible l'invisible.</p>
+      <p class="footer-disclaimer">⚠️ Les informations de ce site sont à but informatif et ne remplacent pas un avis médical.</p>
+    </div>
+    <p class="footer-copy">© 2026 ForManon. Tous droits réservés.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
