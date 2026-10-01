@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="progress-bar" id="progressBar"></div>
   <!-- Navigation -->
   <header>
     <nav>
@@ -18,17 +19,21 @@
         <li><a href="#accueil">Accueil</a></li>
         <li><a href="#mission">Mission</a></li>
         <li><a href="#maladies">Maladies rares</a></li>
+        <li><a href="#idees">Quiz</a></li>
         <li><a href="#recits">Récits</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="burger" id="burger">☰</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
     </nav>
   </header>
 
   <!-- Hero -->
   <section id="accueil" class="hero">
+    <div class="hero-bubbles" aria-hidden="true"></div>
     <div class="hero-content">
       <h1>Rendre <span class="highlight">visible</span> l'invisible</h1>
+      <p class="hero-rotator">Pour celles et ceux qui vivent avec <span id="rotator" class="rotator">la douleur chronique</span></p>
       <p>ForManon sensibilise et informe sur les maladies rares et les handicaps invisibles. Parce que ne pas voir, ne veut pas dire ne pas exister.</p>
       <div class="hero-buttons">
         <a href="#maladies" class="btn btn-primary">Découvrir les maladies</a>
@@ -41,11 +46,11 @@
   <!-- Statistiques -->
   <section class="stats">
     <div class="stat-item">
-      <h3 data-count="3000">0</h3>
+      <h3 data-count="3000" data-suffix="+">0</h3>
       <p>maladies rares recensées</p>
     </div>
     <div class="stat-item">
-      <h3 data-count="80">0</h3>
+      <h3 data-count="80" data-suffix=" %">0</h3>
       <p>% des maladies rares d'origine génétique</p>
     </div>
     <div class="stat-item">
@@ -81,25 +86,64 @@
   <section id="maladies" class="section section-alt">
     <h2 class="section-title">Maladies rares & handicaps invisibles</h2>
     <p class="section-subtitle">Cliquez pour en savoir plus</p>
-    <div class="disease-grid">
-      <a href="ehlers-danlos.html" class="disease-card">
+    <div class="filters">
+      <input type="search" id="diseaseSearch" placeholder="🔎 Rechercher une maladie…" aria-label="Rechercher">
+      <div class="chips" id="chips">
+        <button class="chip active" data-filter="all">Tout</button>
+        <button class="chip" data-filter="dispo">Disponibles</button>
+        <button class="chip" data-filter="soon">À venir</button>
+      </div>
+    </div>
+    <p class="no-result" id="noResult" hidden>Aucun résultat 😕</p>
+    <div class="disease-grid" id="diseaseGrid">
+      <a href="ehlers-danlos.html" class="disease-card" data-status="dispo">
         <div class="disease-tag">Maladie rare</div>
         <h3>Syndrome d'Ehlers-Danlos</h3>
         <p>Une maladie génétique affectant les tissus conjonctifs, souvent invisible et invalidante.</p>
         <span class="disease-link">En savoir plus →</span>
       </a>
-      <div class="disease-card disease-card--soon">
+      <div class="disease-card disease-card--soon" data-status="soon">
         <div class="disease-tag">À venir</div>
         <h3>Fibromyalgie</h3>
         <p>Douleurs chroniques diffuses, fatigue intense... un handicap invisible du quotidien.</p>
         <span class="disease-link">Bientôt disponible</span>
       </div>
-      <div class="disease-card disease-card--soon">
+      <div class="disease-card disease-card--soon" data-status="soon">
         <div class="disease-tag">À venir</div>
         <h3>Endométriose</h3>
         <p>Une maladie gynécologique chronique longtemps sous-estimée et sous-diagnostiquée.</p>
         <span class="disease-link">Bientôt disponible</span>
       </div>
+    </div>
+  </section>
+
+  <!-- Idées reçues -->
+  <section id="idees" class="section">
+    <h2 class="section-title">Vrai ou faux ?</h2>
+    <p class="section-subtitle">Testez vos connaissances sur les handicaps invisibles</p>
+    <div class="quiz" id="quiz">
+      <div class="quiz-top"><span id="quizStep">Question 1/4</span><span id="quizScore">Score : 0</span></div>
+      <div class="quiz-bar"><div id="quizProgress"></div></div>
+      <p class="quiz-q" id="quizQ"></p>
+      <div class="quiz-actions" id="quizActions">
+        <button class="btn btn-primary" data-answer="true">✅ Vrai</button>
+        <button class="btn btn-primary" data-answer="false">❌ Faux</button>
+      </div>
+      <p class="quiz-explain" id="quizExplain" aria-live="polite"></p>
+      <button class="btn btn-outline-dark" id="quizNext" hidden>Suivant →</button>
+    </div>
+  </section>
+
+  <!-- Simulateur de cuillères -->
+  <section id="cuilleres" class="section section-alt">
+    <h2 class="section-title">La théorie des cuillères 🥄</h2>
+    <p class="section-subtitle">Chaque matin, l'énergie est limitée. Essayez de traverser une journée.</p>
+    <div class="spoons">
+      <div class="spoon-bar" id="spoonBar" aria-label="Énergie restante"></div>
+      <p class="spoon-count"><strong id="spoonLeft">12</strong> cuillères restantes</p>
+      <div class="spoon-tasks" id="spoonTasks"></div>
+      <p class="spoon-msg" id="spoonMsg" aria-live="polite">Choisissez vos activités de la journée…</p>
+      <button class="btn btn-primary" id="spoonReset">Recommencer une journée</button>
     </div>
   </section>
 
@@ -112,6 +156,7 @@
         « On me disait que j'étais trop jeune pour avoir mal. Aujourd'hui, je veux que plus personne n'ait à prouver sa douleur. »
       </blockquote>
       <cite>— Un témoignage à venir</cite>
+      <p><a href="#contact" class="btn btn-primary" style="margin-top:1.5rem">Partager le vôtre 💜</a></p>
     </div>
   </section>
 
@@ -122,7 +167,8 @@
     <form id="contact-form">
       <input type="text" id="nom" placeholder="Votre nom" required>
       <input type="email" id="email" placeholder="Votre email" required>
-      <textarea id="message" placeholder="Votre message" rows="5" required></textarea>
+      <textarea id="message" placeholder="Votre message" rows="5" maxlength="500" required></textarea>
+      <small class="counter" id="msgCount">0 / 500</small>
       <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
     <p id="form-message"></p>
@@ -137,6 +183,9 @@
     </div>
     <p class="footer-copy">© 2026 ForManon. Tous droits réservés.</p>
   </footer>
+
+  <button class="to-top" id="toTop" aria-label="Retour en haut">↑</button>
+  <div class="toast" id="toast" role="status"></div>
 
   <script src="script.js"></script>
 </body>
