@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="progress-bar" id="progressBar"></div>
   <!-- Navigation -->
   <header>
     <nav>
@@ -19,7 +20,8 @@
         <li><a href="index.html#maladies">Maladies rares</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
-      <button class="burger" id="burger">☰</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
     </nav>
   </header>
 
@@ -46,36 +48,48 @@
 
       <h2>Les principaux symptômes</h2>
       <div class="symptom-grid">
-        <div class="symptom">
+        <div class="symptom" tabindex="0" role="button">
           <span class="symptom-icon">🦴</span>
           <h4>Hypermobilité articulaire</h4>
           <p>Articulations exagérément souples, luxations et entorses fréquentes.</p>
         </div>
-        <div class="symptom">
+        <div class="symptom" tabindex="0" role="button">
           <span class="symptom-icon">🩹</span>
           <h4>Fragilité de la peau</h4>
           <p>Peau fine, élastique, qui se marque et cicatrise mal.</p>
         </div>
-        <div class="symptom">
+        <div class="symptom" tabindex="0" role="button">
           <span class="symptom-icon">⚡</span>
           <h4>Douleurs chroniques</h4>
           <p>Douleurs diffuses et permanentes, souvent invalidantes.</p>
         </div>
-        <div class="symptom">
+        <div class="symptom" tabindex="0" role="button">
           <span class="symptom-icon">😴</span>
           <h4>Fatigue intense</h4>
           <p>Épuisement chronique disproportionné par rapport à l'effort.</p>
         </div>
-        <div class="symptom">
+        <div class="symptom" tabindex="0" role="button">
           <span class="symptom-icon">💓</span>
           <h4>Troubles cardiovasculaires</h4>
           <p>Tachycardie, malaises, problèmes de circulation.</p>
         </div>
-        <div class="symptom">
+        <div class="symptom" tabindex="0" role="button">
           <span class="symptom-icon">🍽️</span>
           <h4>Troubles digestifs</h4>
           <p>Reflux, ballonnements, troubles du transit.</p>
         </div>
+      </div>
+
+      <h2>Reconnaître les signes d'alerte</h2>
+      <p>Cochez ce qui vous correspond. Ceci n'est <strong>pas un diagnostic</strong> : seul un médecin peut en poser un.</p>
+      <div class="checklist" id="checklist">
+        <label><input type="checkbox"> Je me luxe ou me fais des entorses facilement</label>
+        <label><input type="checkbox"> Je peux plier mes doigts, coudes ou genoux plus que la moyenne</label>
+        <label><input type="checkbox"> Ma peau est très élastique ou se marque facilement</label>
+        <label><input type="checkbox"> J'ai des douleurs chroniques sans cause trouvée</label>
+        <label><input type="checkbox"> Je ressens une fatigue écrasante au quotidien</label>
+        <label><input type="checkbox"> J'ai des palpitations ou des malaises en me levant</label>
+        <p class="check-result" id="checkResult" aria-live="polite">Aucun signe coché.</p>
       </div>
 
       <h2>Un handicap souvent invisible</h2>
@@ -103,6 +117,7 @@
         <h3>💜 Ensemble, sensibilisons</h3>
         <p>Partagez cette page pour aider à faire connaître le syndrome d'Ehlers-Danlos et les handicaps invisibles.</p>
         <a href="index.html#contact" class="btn btn-primary">Partager un témoignage</a>
+        <button class="btn btn-primary" id="shareBtn" style="margin-left:.5rem">🔗 Partager cette page</button>
       </div>
 
       <a href="index.html#maladies" class="back-link">← Retour aux maladies</a>
@@ -118,6 +133,9 @@
     </div>
     <p class="footer-copy">© 2026 ForManon. Tous droits réservés.</p>
   </footer>
+
+  <button class="to-top" id="toTop" aria-label="Retour en haut">↑</button>
+  <div class="toast" id="toast" role="status"></div>
 
   <script src="script.js"></script>
 </body>
