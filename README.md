@@ -1,20 +1,20 @@
-# ForManon 💜
+# ForManon
 
 Site de prévention et de sensibilisation sur les **maladies rares** et les **handicaps invisibles**.
 
-## 🎯 Mission
+## Mission
 Rendre visible l'invisible : informer, sensibiliser et donner la parole aux personnes concernées.
 
-## 📄 Pages
+## Pages
 - **Accueil** : présentation, mission, statistiques
 - **Syndrome d'Ehlers-Danlos** : page dédiée détaillée
 
-## 🛠️ Technologies
+## Technologies
 - HTML5 / CSS3 / JavaScript
 - Design responsive et animations au scroll
 
-## ⚠️ Avertissement
+## Avertissement
 Les informations présentes sur ce site sont à but informatif et ne remplacent en aucun cas un avis médical professionnel.
 
-## 🚀 Démo
+## Démo
 [Voir le site](https://formanon.vercel.app)

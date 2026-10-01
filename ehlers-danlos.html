@@ -7,21 +7,21 @@
   <title>Syndrome d'Ehlers-Danlos — ForManon</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="progress-bar" id="progressBar"></div>
   <!-- Navigation -->
   <header>
     <nav>
-      <a href="index.html" class="logo">For<span>Manon</span> <span class="heart">💜</span></a>
+      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true"></span>For<span>Manon</span></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html#accueil">Accueil</a></li>
         <li><a href="index.html#maladies">Maladies rares</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">🌙</button>
-      <button class="burger" id="burger" aria-label="Menu">☰</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Sombre</button>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
   </header>
 
@@ -49,32 +49,26 @@
       <h2>Les principaux symptômes</h2>
       <div class="symptom-grid">
         <div class="symptom" tabindex="0" role="button">
-          <span class="symptom-icon">🦴</span>
           <h4>Hypermobilité articulaire</h4>
           <p>Articulations exagérément souples, luxations et entorses fréquentes.</p>
         </div>
         <div class="symptom" tabindex="0" role="button">
-          <span class="symptom-icon">🩹</span>
           <h4>Fragilité de la peau</h4>
           <p>Peau fine, élastique, qui se marque et cicatrise mal.</p>
         </div>
         <div class="symptom" tabindex="0" role="button">
-          <span class="symptom-icon">⚡</span>
           <h4>Douleurs chroniques</h4>
           <p>Douleurs diffuses et permanentes, souvent invalidantes.</p>
         </div>
         <div class="symptom" tabindex="0" role="button">
-          <span class="symptom-icon">😴</span>
           <h4>Fatigue intense</h4>
           <p>Épuisement chronique disproportionné par rapport à l'effort.</p>
         </div>
         <div class="symptom" tabindex="0" role="button">
-          <span class="symptom-icon">💓</span>
           <h4>Troubles cardiovasculaires</h4>
           <p>Tachycardie, malaises, problèmes de circulation.</p>
         </div>
         <div class="symptom" tabindex="0" role="button">
-          <span class="symptom-icon">🍽️</span>
           <h4>Troubles digestifs</h4>
           <p>Reflux, ballonnements, troubles du transit.</p>
         </div>
@@ -97,7 +91,7 @@
       <p>Cette invisibilité entraîne souvent de <strong>l'incompréhension</strong> de la part de l'entourage, du milieu scolaire ou professionnel, et parfois même du corps médical. Beaucoup de patients errent pendant des années avant d'obtenir un diagnostic.</p>
 
       <div class="warning-box">
-        <h3>⚠️ À quel point cette maladie peut être néfaste ?</h3>
+        <h3>À quel point cette maladie peut être néfaste ?</h3>
         <p>Le SED peut avoir un impact <strong>majeur et global</strong> sur la vie de la personne :</p>
         <ul>
           <li><strong>Physiquement :</strong> douleurs permanentes, luxations répétées, perte progressive d'autonomie, recours parfois à un fauteuil roulant ou à des aides techniques.</li>
@@ -114,10 +108,10 @@
       <p>Le plus important reste la <strong>reconnaissance</strong> et la <strong>compréhension</strong> de cette maladie. C'est précisément la mission de ForManon : rendre visible ce que l'on ne voit pas.</p>
 
       <div class="cta-box">
-        <h3>💜 Ensemble, sensibilisons</h3>
+        <h3>Ensemble, sensibilisons</h3>
         <p>Partagez cette page pour aider à faire connaître le syndrome d'Ehlers-Danlos et les handicaps invisibles.</p>
         <a href="index.html#contact" class="btn btn-primary">Partager un témoignage</a>
-        <button class="btn btn-primary" id="shareBtn" style="margin-left:.5rem">🔗 Partager cette page</button>
+        <button class="btn btn-primary" id="shareBtn" style="margin-left:.5rem">Partager cette page</button>
       </div>
 
       <a href="index.html#maladies" class="back-link">← Retour aux maladies</a>
@@ -127,14 +121,14 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-logo">For<span>Manon</span> 💜</div>
+      <div class="footer-logo">For<span>Manon</span></div>
       <p>Rendre visible l'invisible.</p>
-      <p class="footer-disclaimer">⚠️ Les informations de ce site sont à but informatif et ne remplacent pas un avis médical. Consultez un professionnel de santé.</p>
+      <p class="footer-disclaimer">Les informations de ce site sont à but informatif et ne remplacent pas un avis médical. Consultez un professionnel de santé.</p>
     </div>
     <p class="footer-copy">© 2026 ForManon. Tous droits réservés.</p>
   </footer>
 
-  <button class="to-top" id="toTop" aria-label="Retour en haut">↑</button>
+  <button class="to-top" id="toTop" aria-label="Retour en haut"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button>
   <div class="toast" id="toast" role="status"></div>
 
   <script src="script.js"></script>

@@ -16,7 +16,7 @@ function toast(msg) {
 const themeBtn = $('#themeToggle');
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
-  if (themeBtn) themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  if (themeBtn) themeBtn.textContent = theme === 'dark' ? 'Clair' : 'Sombre';
 }
 let savedTheme = null;
 try { savedTheme = localStorage.getItem('theme'); } catch (e) {}
@@ -98,7 +98,7 @@ const io = new IntersectionObserver(entries => {
     if (e.target.dataset.count) animateCounter(e.target);
     io.unobserve(e.target);
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
 $$('.card, .disease-card, .symptom, .stat-item').forEach(el => { el.classList.add('reveal'); io.observe(el); });
 $$('[data-count]').forEach(el => io.observe(el));
 
@@ -155,7 +155,7 @@ if (quiz) {
     if (ok) score++;
     buttons.forEach(x => x.disabled = true);
     b.classList.add(ok ? 'good' : 'bad');
-    exp.textContent = (ok ? '🎉 Bravo ! ' : '💡 Pas tout à fait. ') + qs[idx].e;
+    exp.textContent = (ok ? 'Bonne réponse. ' : 'Pas tout à fait. ') + qs[idx].e;
     $('#quizScore').textContent = `Score : ${score}`;
     next.textContent = idx === qs.length - 1 ? 'Voir mon résultat' : 'Suivant →';
     next.hidden = false;
@@ -164,7 +164,7 @@ if (quiz) {
     idx++;
     if (idx < qs.length) return show();
     $('#quizProgress').style.width = '100%';
-    qEl.innerHTML = `<span class="final">${score === qs.length ? '🏆' : '💜'}</span><br>${score}/${qs.length} bonnes réponses`;
+    qEl.innerHTML = `<span class="final">${score}/${qs.length}</span><br>bonnes réponses`;
     exp.textContent = 'Merci d\'avoir joué. Partagez ce quiz pour faire reculer les idées reçues !';
     acts.hidden = true;
     next.textContent = 'Rejouer';
@@ -178,10 +178,10 @@ const spoonBar = $('#spoonBar');
 if (spoonBar) {
   const TOTAL = 12;
   const tasks = [
-    { n: '🚿 Prendre une douche', c: 2 }, { n: '🍳 Préparer à manger', c: 2 },
-    { n: '🛒 Faire les courses', c: 3 }, { n: '💼 Travailler / étudier', c: 4 },
-    { n: '🧹 Faire le ménage', c: 3 }, { n: '👥 Voir des amis', c: 2 },
-    { n: '🏥 Rendez-vous médical', c: 3 }, { n: '📞 Appeler un proche', c: 1 }
+    { n: 'Prendre une douche', c: 2 }, { n: 'Préparer à manger', c: 2 },
+    { n: 'Faire les courses', c: 3 }, { n: 'Travailler / étudier', c: 4 },
+    { n: 'Faire le ménage', c: 3 }, { n: 'Voir des amis', c: 2 },
+    { n: 'Rendez-vous médical', c: 3 }, { n: 'Appeler un proche', c: 1 }
   ];
   let left = TOTAL;
   const tasksEl = $('#spoonTasks'), msg = $('#spoonMsg');
@@ -189,8 +189,7 @@ if (spoonBar) {
     spoonBar.innerHTML = '';
     for (let i = 0; i < TOTAL; i++) {
       const s = document.createElement('span');
-      s.textContent = '🥄';
-      if (i >= left) s.className = 'used';
+            if (i >= left) s.className = 'used';
       spoonBar.appendChild(s);
     }
     $('#spoonLeft').textContent = left;
@@ -203,7 +202,7 @@ if (spoonBar) {
       const b = document.createElement('button');
       b.className = 'task';
       b.dataset.cost = t.c;
-      b.innerHTML = `${t.n}<b>−${t.c} 🥄</b>`;
+      b.innerHTML = `${t.n}<b>−${t.c} cuillère${t.c > 1 ? 's' : ''}</b>`;
       b.addEventListener('click', () => {
         if (b.classList.contains('done') || t.c > left) return;
         left -= t.c;
@@ -231,8 +230,8 @@ if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
     const nom = $('#nom').value.trim();
-    $('#form-message').textContent = `Merci ${nom} 💜 Votre message a bien été envoyé !`;
-    toast('Message envoyé 💜');
+    $('#form-message').textContent = `Merci ${nom}. Votre message a bien été envoyé !`;
+    toast('Message envoyé');
     form.reset();
     count.textContent = '0 / 500';
   });
@@ -274,7 +273,7 @@ if (share) {
     const data = { title: document.title, url: location.href };
     try {
       if (navigator.share) await navigator.share(data);
-      else { await navigator.clipboard.writeText(location.href); toast('Lien copié 🔗'); }
+      else { await navigator.clipboard.writeText(location.href); toast('Lien copié'); }
     } catch (e) {}
   });
 }
