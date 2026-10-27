@@ -158,3 +158,9 @@ body.love:not(.locked) #gate { display: none; }
 @keyframes shake { 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
 .gate-back { color: #cfdcff; font-size: .9rem; text-decoration: none; opacity: .8; }
 .gate-back:hover { opacity: 1; text-decoration: underline; }
+
+/* Photos réelles */
+.photo { display: block; }
+.photo img { border-radius: 2px; }
+.photo.wide { aspect-ratio: 1; }
+.photo.wide img { object-position: 72% center; }
