@@ -391,3 +391,30 @@ if (dailyForm) {
     }
   });
 }
+
+// ===== MOT DE PASSE (page « Je t'aime ») — protection légère, côté navigateur =====
+const gate = $('#gate');
+if (gate) {
+  const gateForm = $('#gateForm');
+  const gateErr = $('#gateError');
+  const sha256 = async txt => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(txt)))]
+    .map(b => b.toString(16).padStart(2, '0')).join('');
+  gateForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const typed = $('#gatePwd').value.trim().toLowerCase();
+    let ok = false;
+    try { ok = (await sha256(typed)) === gate.dataset.hash; } catch (err) { gateErr.textContent = 'Navigateur non compatible.'; return; }
+    if (ok) {
+      try { sessionStorage.setItem('loveOk', '1'); } catch (err) {}
+      document.body.classList.remove('locked');
+      window.scrollTo(0, 0);
+      onScroll();
+    } else {
+      gateErr.textContent = 'Ce n\'est pas ça, réessaie.';
+      gateForm.classList.remove('shake');
+      void gateForm.offsetWidth;
+      gateForm.classList.add('shake');
+      $('#gatePwd').select();
+    }
+  });
+}
