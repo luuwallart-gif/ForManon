@@ -277,3 +277,38 @@ if (share) {
     } catch (e) {}
   });
 }
+
+// ===== PAGE « JE T'AIME » : onglets + lightbox =====
+const tabList = $('.tab-list');
+if (tabList) {
+  const tabs = $$('.tab', tabList);
+  const select = (tab, focus) => {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      const p = $('#' + t.getAttribute('aria-controls'));
+      p.hidden = !on;
+      p.classList.toggle('active', on);
+    });
+    if (focus) tab.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') select(tabs[(i + 1) % tabs.length], true);
+      if (e.key === 'ArrowLeft') select(tabs[(i - 1 + tabs.length) % tabs.length], true);
+    });
+  });
+
+  const lb = $('#lightbox');
+  const lbImg = $('img', lb);
+  const closeLb = () => { lb.hidden = true; };
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.photo img');
+    if (img) { lbImg.src = img.src; lbImg.alt = img.alt; lb.hidden = false; }
+    else if (e.target === lb || e.target.closest('.lb-close')) closeLb();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+}
