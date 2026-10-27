@@ -8,34 +8,36 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="love.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="love">
   <div class="progress-bar" id="progressBar"></div>
-  <header>
-    <nav>
-      <a href="index.html" class="logo"><span class="logo-mark" aria-hidden="true"></span>For<span>Manon</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#accueil">Accueil</a></li>
-        <li><a href="#souvenirs">Nos photos</a></li>
-        <li><a href="#raisons">Pourquoi je t'aime</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">Sombre</button>
-      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <header class="love-top">
+    <a href="index.html" class="love-back">&larr; ForManon</a>
+    <nav class="love-links" aria-label="Sections">
+      <a href="#souvenirs">Nos photos</a>
+      <a href="#raisons">Pourquoi je t'aime</a>
     </nav>
   </header>
 
   <section class="love-hero">
+    <div class="orb orb-red" aria-hidden="true"></div>
+    <div class="orb orb-blue" aria-hidden="true"></div>
     <div class="love-hero-content">
-      <p class="love-kicker">Pour toi</p>
-      <h1>Je t'aime</h1>
-      <p class="love-lead">Quelques souvenirs, quelques promesses, et toutes les raisons pour lesquelles tu comptes tant pour moi.</p>
-      <a href="#souvenirs" class="btn btn-light">Voir nos photos</a>
+      <p class="love-kicker">Rien que pour toi</p>
+      <h1><span class="h-line">Je</span> <span class="h-line red">t'aime</span></h1>
+      <svg class="big-heart" viewBox="0 0 32 29" aria-hidden="true"><path d="M23.6 0c-3.4 0-5.7 1.6-7.6 4.1C14.1 1.6 11.8 0 8.4 0 3.800 0 0 3.800 0 8.500c0 9.600 10.500 14.200 16 20.500C21.500 22.700 32 18.100 32 8.500 32 3.800 28.200 0 23.600 0z"/></svg>
+      <p class="love-lead">Des souvenirs, des promesses, et toutes les raisons pour lesquelles tu comptes tant.</p>
+      <a href="#souvenirs" class="btn btn-red">Voir nos photos</a>
     </div>
-    <div class="love-waves" aria-hidden="true"></div>
   </section>
 
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span>
+  </div></div>
+
   <section id="souvenirs" class="love-section">
+    <p class="love-kicker blue">Album</p>
     <h2 class="love-title">Nos moments</h2>
     <p class="love-subtitle">Choisis un onglet pour voyager dans nos souvenirs</p>
 
@@ -148,7 +150,7 @@
 
   <section id="raisons" class="love-section love-section-alt">
     <article class="love-article">
-      <p class="love-kicker dark">Article</p>
+      <p class="love-kicker">Article</p>
       <h2 class="love-title left">Voici toutes les raisons de pourquoi je t'aime</h2>
       <p class="byline">Écrit pour toi</p>
 
