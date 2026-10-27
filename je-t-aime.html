@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Une page rien que pour toi : nos souvenirs, nos activités, notre futur.">
+  <title>Je t'aime — ForManon</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="love.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="love locked">
+  <script>try{if(sessionStorage.getItem('loveOk')==='1')document.body.classList.remove('locked');}catch(e){}</script>
+  <div class="gate" id="gate" data-hash="bf3cb6d51dcbbb6d7141321560b7339e8f98c2fbaea3267837547c08cdf138ca">
+    <form class="gate-box" id="gateForm" autocomplete="off">
+      <svg class="gate-heart" viewBox="0 0 32 29" aria-hidden="true"><path d="M23.6 0c-3.4 0-5.7 1.6-7.6 4.1C14.1 1.6 11.8 0 8.4 0 3.800 0 0 3.800 0 8.500c0 9.600 10.500 14.200 16 20.500C21.500 22.700 32 18.100 32 8.500 32 3.800 28.200 0 23.600 0z"/></svg>
+      <label for="gatePwd" class="gate-title">Dis ton mot de passe</label>
+      <input type="password" id="gatePwd" placeholder="Mot de passe" autocomplete="off" autofocus required>
+      <button type="submit" class="btn btn-red">Entrer</button>
+      <p class="gate-error" id="gateError" role="alert"></p>
+      <a href="index.html" class="gate-back">&larr; Retour au site</a>
+    </form>
+  </div>
+  <div class="progress-bar" id="progressBar"></div>
+  <header class="love-top">
+    <a href="index.html" class="love-back">&larr; ForManon</a>
+    <nav class="love-links" aria-label="Sections">
+      <a href="#souvenirs">Nos photos</a>
+      <a href="#raisons">Pourquoi je t'aime</a>
+      <a href="#questionnaire">Comment tu vas ?</a>
+    </nav>
+  </header>
+
+  <section class="love-hero">
+    <div class="orb orb-red" aria-hidden="true"></div>
+    <div class="orb orb-blue" aria-hidden="true"></div>
+    <div class="love-hero-content">
+      <p class="love-kicker">Rien que pour toi</p>
+      <h1><span class="h-line">Je</span> <span class="h-line red">t'aime</span></h1>
+      <svg class="big-heart" viewBox="0 0 32 29" aria-hidden="true"><path d="M23.6 0c-3.4 0-5.7 1.6-7.6 4.1C14.1 1.6 11.8 0 8.4 0 3.800 0 0 3.800 0 8.500c0 9.600 10.500 14.200 16 20.500C21.500 22.700 32 18.100 32 8.500 32 3.800 28.200 0 23.600 0z"/></svg>
+      <p class="love-lead">Des souvenirs, des promesses, et toutes les raisons pour lesquelles tu comptes tant.</p>
+      <a href="#souvenirs" class="btn btn-red">Voir nos photos</a>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span><span>Je t'aime</span>
+  </div></div>
+
+  <section id="souvenirs" class="love-section">
+    <p class="love-kicker blue">Album</p>
+    <h2 class="love-title">Nos moments</h2>
+    <p class="love-subtitle">Choisis un onglet pour voyager dans nos souvenirs</p>
+
+    <div class="tabs">
+      <div class="tab-list" role="tablist" aria-label="Albums photo">
+        <button class="tab active" role="tab" id="tab-cannes" aria-selected="true" aria-controls="panel-cannes" tabindex="0">Cannes</button>
+        <button class="tab" role="tab" id="tab-orres" aria-selected="false" aria-controls="panel-orres" tabindex="-1">Les Orres</button>
+        <button class="tab" role="tab" id="tab-activites" aria-selected="false" aria-controls="panel-activites" tabindex="-1">Nos activités</button>
+        <button class="tab" role="tab" id="tab-futur" aria-selected="false" aria-controls="panel-futur" tabindex="-1">Notre futur</button>
+      </div>
+
+      <div class="tab-panel active" id="panel-cannes" role="tabpanel" aria-labelledby="tab-cannes">
+        <h3>Cannes</h3>
+        <p class="panel-sub">Nos souvenirs au bord de la Méditerranée.</p>
+        <div class="gallery">
+          <figure class="photo" tabindex="0"><img src="images/cannes-1.webp" alt="Manon sur le balcon, qui montre du doigt la vue sur Cannes" loading="lazy" width="923" height="1231"></figure>
+          <figure class="photo wide" tabindex="0"><img src="images/cannes-2.webp" alt="Vue de nuit depuis le balcon à Cannes" loading="lazy" width="923" height="691"></figure>
+          <figure class="photo" tabindex="0"><img src="images/cannes-3.webp" alt="Une crique de la Méditerranée, eau turquoise et ciel bleu" loading="lazy" width="923" height="1230"></figure>
+          <figure class="photo" tabindex="0"><img src="images/cannes-4.webp" alt="Nous deux sur la plage de Cannes au coucher du soleil" loading="lazy" width="923" height="1230"></figure>
+          <figure class="photo" tabindex="0"><img src="images/cannes-5.webp" alt="Manon à une terrasse de Cannes, le soir" loading="lazy" width="923" height="1230"></figure>
+          <figure class="photo" tabindex="0"><img src="images/cannes-6.webp" alt="Le bateau qui arrive au port, sous un ciel bleu éclatant" loading="lazy" width="923" height="1230"></figure>
+          <figure class="photo" tabindex="0"><img src="images/cannes-7.webp" alt="Manon sur le balcon, la tête penchée, avec la ville de Cannes derrière" loading="lazy" width="923" height="1230"></figure>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-orres" role="tabpanel" aria-labelledby="tab-orres" hidden>
+        <h3>Les Orres</h3>
+        <p class="panel-sub">Là-haut, au milieu des montagnes.</p>
+        <div class="gallery">
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 1</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 2</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 3</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 4</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 5</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 6</span>
+        </figure>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-activites" role="tabpanel" aria-labelledby="tab-activites" hidden>
+        <h3>Nos activités</h3>
+        <p class="panel-sub">Tout ce qu'on aime faire ensemble.</p>
+        <div class="gallery">
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 1</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 2</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 3</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 4</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 5</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 6</span>
+        </figure>
+        </div>
+      </div>
+      <div class="tab-panel" id="panel-futur" role="tabpanel" aria-labelledby="tab-futur" hidden>
+        <h3>Notre futur</h3>
+        <p class="panel-sub">Tout ce qu'on construira, côte à côte.</p>
+        <div class="gallery">
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 1</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 2</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 3</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 4</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 5</span>
+        </figure>
+        <figure class="photo placeholder" tabindex="0">
+          <span class="ph-label">Photo 6</span>
+        </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="raisons" class="love-section love-section-alt">
+    <article class="love-article">
+      <p class="love-kicker">Article</p>
+      <h2 class="love-title left">Voici toutes les raisons de pourquoi je t'aime</h2>
+      <p class="byline">Écrit par Lu, pour Manon</p>
+
+      <p class="dropcap greeting">Coucou mon ANGE,</p>
+
+      <p>Au lieu de te faire un long message, j'ai décidé de te faire cette petite page dédiée à notre réconciliation. Je me suis dit que c'était plus joli.</p>
+
+      <p>Sache que le design est fait par IA, mais pas la forme : c'est moi qui ai tout écrit et tout organisé !</p>
+
+      <p>Bref, par où commencer ? Par le début peut-être. Quand je t'ai vue pour la toute première fois chez mamie Patou, sache que je t'ai immédiatement trouvée très belle. Je te l'ai dit, ce n'est pas une blague, ton regard m'a tout de suite convaincu. Je sais que je n'étais pas forcément mature à l'époque (aujourd'hui je te laisse en juger, même si tu vas me défoncer mdr), et que j'étais aussi très aveugle. Je pensais sincèrement que tu ne m'aimais pas. J'étais vachement con, faut se l'avouer. Quand ta collègue Capucine, il me semble, est venue me DM pour me dire que tu me trouvais beau, je pensais que c'était une blague sur le coup. Je t'ai longtemps vue comme inaccessible, et surtout comme la cousine de mon meilleur ami, alors j'ai préféré juste flirter sans vraiment y croire, et la suite tu la connais. J'ai eu d'autres copines malheureusement, et j'aurais tellement aimé me réveiller avant.</p>
+
+      <p>À un moment, quand t'étais en 3ème, j'ai longuement songé à te dire la vérité, mais j'ai appris par Haytam que t'étais en couple. Aïe, coup dur pour Guillaume.</p>
+
+      <p>Le soir du trampoline aussi m'a fait longuement me remettre en question : j'avais tellement bien dormi, ça faisait tellement longtemps que je n'avais pas aussi bien dormi. Mais tu m'as bloqué, alors ça m'a découragé.</p>
+
+      <p>Puis on s'est revus au bar. Ce soir-là, je savais que c'était maintenant ou jamais. Qu'il fallait vraiment que je me lance, que je mette mes peurs et mes doutes de côté et que j'essaie. Oui, j'ai eu longtemps peur que tu me rejettes. Bref, tu sais beaucoup de choses sur moi maintenant que tu ne savais peut-être pas avant, mais ma confiance en moi était encore pire avant.</p>
+
+      <p>Tu ne peux pas savoir à quel point je me suis senti bien quand j'ai vu que tu ne me rejetais pas. J'ai beaucoup culpabilisé dans un premier temps, parce que je me suis dit que du coup tu avais attendu longtemps et que, par peur que tu me rejettes, je ne m'étais jamais lancé. J'ai regretté mes anciennes relations aussi, qui m'ont fait perdre du temps. Mais après, je n'y ai plus pensé, parce que ça n'avait plus d'importance : tu étais enfin là.</p>
+
+      <p>Le début de notre relation a été mouvementé en vrai, faut se le dire, mais je me sentais tellement bien à tes côtés que je savais qu'il fallait s'accrocher ensemble pour vivre ce qu'on a à vivre ensemble. Chaque moment est magique, même les plus compliqués. Sache que cette vision n'a absolument pas changé, et c'est toujours le cas.</p>
+
+      <p>Je sais qu'on est différents sur de nombreux points, mais on est aussi énormément complémentaires. On est tellement vite devenus inséparables, pour ton plus grand bonheur d'ailleurs, vu que tu as beaucoup moins de moments de solitude. D'ailleurs, je t'ai toujours dit que quand tu as besoin de ces moments de solitude, il faut me le dire, c'est important.</p>
+
+      <blockquote class="love-quote">Ce ne sont pas que des mots : il y a aussi des actions derrière.</blockquote>
+
+      <p>Bref, notre histoire, on la connaît, on la vit à deux. Là où on en est aujourd'hui, je n'en suis pas fier. J'aurais tellement aimé éviter ça. Là où j'ai fauté, je pense, c'est que je me base beaucoup sur la communication, alors que toi tu n'aimes pas ça. Même si c'est très important, il faut savoir aussi comprendre l'autre sans forcément parler, et c'est là où j'ai échoué, et je n'en suis pas fier. Par contre attention, ça ne veut pas dire que ça sera comme ça pour toujours : les erreurs, ça sert à apprendre et à rectifier le tir.</p>
+
+      <p>C'est ce que j'essaye de faire au maximum : m'améliorer, réajuster le tir pour être le meilleur possible pour toi, car NON, je ne veux pas avoir une femme et des enfants : je veux être un père avec un grand P et un mari avec un grand M. Alors peut-être qu'en ce moment tu ne le vois pas trop, parce que je suis terrorisé à l'idée de mal faire, de ne pas être assez. Je voyais tellement que tu n'allais pas bien, mais j'avais trop peur de mal faire, d'en rajouter une couche là où il ne faut pas, au point d'en oublier les priorités, c'est-à-dire toi.</p>
+
+      <p>Maintenant laisse-moi te dire une chose : je t'aime et je veux toujours ton bonheur. Même si des fois mes actes peuvent être maladroits, je cherche toujours à apprendre, et tu peux être sûre et certaine de mes sentiments envers toi. Je ne me fous pas de toi, ça jamais, je te respecterai toujours et je chercherai toujours à te montrer que je suis là. Sache que ce ne sont pas que des mots, mais des actions aussi, qui ont été faites et qui continueront d'être faites, toujours dans le mieux.</p>
+
+      <p>Bon, maintenant passons aux raisons pour lesquelles je t'aime :</p>
+
+      <h3>1ère raison</h3>
+      <p>Ton putain de regard, bordel, je pourrais te manger pour ça. Tes yeux tellement beaux et expressifs, combinés à ton regard de tueuse, j'adore.</p>
+
+      <h3>2ème raison</h3>
+      <p>Ta manière d'être ! Je te l'ai toujours dit, et même le premier jour où tu m'en as parlé : pour moi, ta maladie ne change absolument pas la personne géniale que tu es. Je m'en branle que tu sois malade, pour moi Manon Monge est exceptionnelle. Tu te bats, tu fais ce qu'il faut même si tu n'en as pas envie, tu es gentille, intelligente, forte et drôle (rarement).</p>
+
+      <h3>3ème raison</h3>
+      <p>Tu me pousses vers le haut, tu me motives, tu me donnes espoir en l'avenir. Que dire de plus ? J'ai tellement imaginé notre avenir ensemble que c'est devenu un objectif précis. Chaque moment passé avec toi est tellement bon que je veux en faire ma vie.</p>
+
+      <h3>4ème raison</h3>
+      <p>Ta beauté. Bordel, t'es divine. Je t'en supplie, on va se mettre au sport à fond ensemble, faut vraiment le faire. Ensuite on te fait un book ! Ptn, tu pourrais tellement être mannequin, faut vraiment que tu prennes confiance en toi ! Mais ne me ghoste pas stp.</p>
+
+      <p>Bref, tout ça pour te dire que JE T'AIME vraiment, que je ne me fous absolument pas de toi. Que je m'en veux beaucoup pour notre situation actuelle et que je suis prêt à tout pour te rendre la plus heureuse possible. Je suis prêt à mieux gérer ce qui concerne ma personne et nous.</p>
+
+      <p>Je t'aime fort Manon, j'espère de tout cœur que toi aussi, encore un peu au moins. On n'a pas vécu tout ça ensemble pour que ça s'arrête là, on vient de loin.</p>
+
+      <p class="signature">Je t'aime pour toujours.<br>Signé Lu.</p>
+
+      <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    </article>
+  </section>
+
+  <section id="questionnaire" class="love-section form-section">
+    <p class="love-kicker blue">Questionnaire du jour</p>
+    <h2 class="love-title">Comment tu vas&nbsp;?</h2>
+    <p class="love-subtitle">Prends ton temps. Tout ce que tu écris arrive directement jusqu'à moi.</p>
+
+    <form id="daily-form" class="daily-form" novalidate>
+      <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+      <input type="hidden" name="subject" value="Les réponses du jour">
+      <input type="hidden" name="from_name" value="Questionnaire Je t'aime">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset class="q">
+        <legend class="q-label"><span class="q-num">1</span>Comment te sens-tu actuellement&nbsp;?</legend>
+        <div class="moods">
+          <label class="mood"><input type="radio" name="humeur" value="Au top" required><span>Au top</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="Bien" required><span>Bien</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="Bof" required><span>Bof</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="Fatiguée" required><span>Fatiguée</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="Stressée" required><span>Stressée</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="Triste" required><span>Triste</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="En colère" required><span>En colère</span></label>
+          <label class="mood"><input type="radio" name="humeur" value="Submergée" required><span>Submergée</span></label>
+        </div>
+      </fieldset>
+
+      <div class="q">
+        <label for="raison" class="q-label"><span class="q-num">2</span>Dis-moi plus en détail la raison de ton humeur</label>
+        <textarea id="raison" name="raison" rows="4" placeholder="Raconte-moi…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="negatifs" class="q-label"><span class="q-num">3</span>Quels sont les points négatifs de ta journée&nbsp;?</label>
+        <textarea id="negatifs" name="negatifs" rows="4" placeholder="Ce qui t'a pesé, agacé, fatigué…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="positifs" class="q-label"><span class="q-num">4</span>Quels sont les points positifs de ta journée&nbsp;?</label>
+        <textarea id="positifs" name="positifs" rows="4" placeholder="Même les petites choses comptent…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="besoin" class="q-label"><span class="q-num">5</span>De quoi aurais-tu besoin actuellement&nbsp;?</label>
+        <textarea id="besoin" name="besoin" rows="4" placeholder="Un câlin, du calme, de l'aide, une pause…"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-red btn-send" id="sendBtn">Envoyer mes réponses</button>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+      <div class="daily-quote">
+        <p class="dq-kicker">Pour toi, aujourd'hui</p>
+        <p class="dq-text" id="dailyQuote"></p>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">For<span>Manon</span></div>
+      <p>Rendre visible l'invisible.</p>
+    </div>
+    <p class="footer-copy">© 2026 ForManon. Tous droits réservés.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden><button class="lb-close" aria-label="Fermer">×</button><img alt=""></div>
+  <button class="to-top" id="toTop" aria-label="Retour en haut"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></button>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -798,3 +798,16 @@ nav { gap: .5rem; }
 .cta-box, .cta-box h3, .cta-box p, footer, .footer-logo { color: #fff; }
 .cta-box .btn-primary { color: var(--primary-dark); }
 [data-theme="dark"] .cta-box .btn-primary { color: #0a2540; }
+
+/* ===== BANNIÈRE « JE T'AIME » (accueil) ===== */
+.love-banner { position: relative; text-align: center; padding: 5rem 1.5rem; background: #07173d; color: #fff; overflow: hidden; }
+.love-banner::before { content: ''; position: absolute; width: 520px; height: 520px; right: -140px; top: -200px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 31, 61, .55), transparent 65%); }
+.love-banner::after { content: ''; position: absolute; width: 480px; height: 480px; left: -160px; bottom: -240px; border-radius: 50%; background: radial-gradient(circle, rgba(46, 108, 255, .5), transparent 65%); }
+.love-banner > * { position: relative; z-index: 1; }
+.love-banner-kicker { text-transform: uppercase; letter-spacing: .3em; font-size: .8rem; color: #ff6b81; font-weight: 600; margin-bottom: .8rem; }
+.love-banner h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.4rem, 7vw, 5rem); line-height: 1.1; font-weight: 700; max-width: 950px; margin: 0 auto 2rem; }
+.love-banner h2 a { color: #ff2a45; font-style: italic; text-decoration: none; border-bottom: 4px solid #ff2a45; transition: color .3s, border-color .3s; }
+.love-banner h2 a:hover { color: #fff; border-color: #fff; }
+.love-banner .btn-primary { background: #ff1f3d; }
+.love-banner .btn-primary:hover { background: #e0132f; box-shadow: 0 10px 25px rgba(255, 31, 61, .45); }
+.btn-lg { padding: 1.1rem 2.8rem; font-size: 1.1rem; }

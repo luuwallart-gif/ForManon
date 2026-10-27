@@ -277,3 +277,144 @@ if (share) {
     } catch (e) {}
   });
 }
+
+// ===== PAGE « JE T'AIME » : onglets + lightbox =====
+const tabList = $('.tab-list');
+if (tabList) {
+  const tabs = $$('.tab', tabList);
+  const select = (tab, focus) => {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      const p = $('#' + t.getAttribute('aria-controls'));
+      p.hidden = !on;
+      p.classList.toggle('active', on);
+    });
+    if (focus) tab.focus();
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') select(tabs[(i + 1) % tabs.length], true);
+      if (e.key === 'ArrowLeft') select(tabs[(i - 1 + tabs.length) % tabs.length], true);
+    });
+  });
+
+  const lb = $('#lightbox');
+  const lbImg = $('img', lb);
+  const closeLb = () => { lb.hidden = true; };
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.photo img');
+    if (img) { lbImg.src = img.src; lbImg.alt = img.alt; lb.hidden = false; }
+    else if (e.target === lb || e.target.closest('.lb-close')) closeLb();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+}
+
+// ===== QUESTIONNAIRE DU JOUR (page « Je t'aime ») =====
+const dailyForm = $('#daily-form');
+if (dailyForm) {
+  // Phrase encourageante : une par jour, qui change automatiquement à minuit
+  const phrases = [
+    'Tu es plus forte que tu ne le crois.',
+    'Une petite avancée reste une avancée.',
+    'Tu as le droit d\'être fatiguée. Tu n\'as pas le droit d\'oublier à quel point tu comptes.',
+    'Respire. Tu fais déjà de ton mieux, et c\'est largement suffisant.',
+    'Chaque jour difficile que tu traverses prouve ton courage.',
+    'Tu n\'as rien à prouver à personne.',
+    'Même les jours gris finissent par laisser passer le soleil.',
+    'Prends soin de toi comme tu prendrais soin de ceux que tu aimes.',
+    'Ta douleur est réelle, et ta force l\'est tout autant.',
+    'Tu mérites de la douceur, aujourd\'hui plus que jamais.',
+    'Un pas après l\'autre. Il n\'y a pas de course.',
+    'Tout ce que tu portes sans qu\'on le voie force l\'admiration.',
+    'Tu as le droit de te reposer sans culpabiliser.',
+    'Ce que tu ressens est légitime.',
+    'Demain est une nouvelle page, et tu n\'es pas seule pour l\'écrire.',
+    'Tu es courageuse, même quand tu ne te sens pas courageuse.',
+    'Les petites joies comptent autant que les grandes.',
+    'Tu n\'es pas un fardeau. Tu es une lumière.',
+    'Aujourd\'hui, être là suffit.',
+    'Tu as déjà surmonté tant de choses. Celle-ci aussi, tu la traverseras.',
+    'Ton rythme est le bon.',
+    'Tu es aimée, exactement comme tu es.',
+    'Prends une grande inspiration : tu as déjà fait le plus dur.',
+    'Chaque matin, tu recommences, et ça demande une force immense.',
+    'Tu n\'as pas besoin d\'être parfaite pour être précieuse.',
+    'Il y a de la beauté dans ta façon de ne jamais abandonner.',
+    'Laisse-toi le droit d\'aller doucement.',
+    'Tu fais la différence, plus que tu ne l\'imagines.',
+    'Ce soir, autorise-toi à lâcher prise.',
+    'Quoi qu\'il arrive aujourd\'hui, je suis avec toi.',
+    'Tu es mon plus beau souvenir et mon plus beau projet.'
+  ];
+  const now = new Date();
+  const dayNumber = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+  $('#dailyQuote').textContent = phrases[dayNumber % phrases.length];
+
+  // Envoi par Web3Forms (clé à renseigner dans le champ caché access_key)
+  const status = $('#formStatus');
+  const sendBtn = $('#sendBtn');
+  const setStatus = (msg, cls) => { status.textContent = msg; status.className = 'form-status ' + (cls || ''); };
+
+  dailyForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!dailyForm.querySelector('input[name="humeur"]:checked')) {
+      setStatus('Choisis d\'abord comment tu te sens (question 1).', 'err');
+      return;
+    }
+    const data = Object.fromEntries(new FormData(dailyForm));
+    if (data.botcheck) return;
+    if (!data.access_key || data.access_key === 'VOTRE_CLE_WEB3FORMS') {
+      setStatus('Le formulaire n\'est pas encore connecté : rien n\'a été envoyé.', 'err');
+      return;
+    }
+    sendBtn.disabled = true;
+    setStatus('Envoi en cours…');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.message);
+      dailyForm.reset();
+      setStatus('Merci, tes réponses sont bien arrivées jusqu\'à moi.', 'ok');
+      toast('Réponses envoyées');
+    } catch (err) {
+      setStatus('Oups, l\'envoi a échoué. Réessaie dans un instant.', 'err');
+    } finally {
+      sendBtn.disabled = false;
+    }
+  });
+}
+
+// ===== MOT DE PASSE (page « Je t'aime ») — protection légère, côté navigateur =====
+const gate = $('#gate');
+if (gate) {
+  const gateForm = $('#gateForm');
+  const gateErr = $('#gateError');
+  const sha256 = async txt => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(txt)))]
+    .map(b => b.toString(16).padStart(2, '0')).join('');
+  gateForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const typed = $('#gatePwd').value.trim().toLowerCase();
+    let ok = false;
+    try { ok = (await sha256(typed)) === gate.dataset.hash; } catch (err) { gateErr.textContent = 'Navigateur non compatible.'; return; }
+    if (ok) {
+      try { sessionStorage.setItem('loveOk', '1'); } catch (err) {}
+      document.body.classList.remove('locked');
+      window.scrollTo(0, 0);
+      onScroll();
+    } else {
+      gateErr.textContent = 'Ce n\'est pas ça, réessaie.';
+      gateForm.classList.remove('shake');
+      void gateForm.offsetWidth;
+      gateForm.classList.add('shake');
+      $('#gatePwd').select();
+    }
+  });
+}
