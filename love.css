@@ -137,3 +137,7 @@ html:has(body.love) { overflow-x: hidden; }
 .daily-quote::before { content: ''; position: absolute; width: 220px; height: 220px; right: -60px; top: -90px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 31, 61, .6), transparent 65%); }
 .dq-kicker { position: relative; text-transform: uppercase; letter-spacing: .25em; font-size: .72rem; font-weight: 700; color: #ff6b81; margin-bottom: .6rem; }
 .dq-text { position: relative; font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.3rem, 3.4vw, 1.7rem); line-height: 1.35; }
+.dropcap.greeting { font-family: var(--serif); font-style: italic; font-weight: 800; font-size: 2.2rem; color: #fff; }
+.dropcap.greeting::first-letter { float: none; font-size: inherit; padding: 0; color: inherit; line-height: inherit; }
+.signature { line-height: 1.3; }
+.love-article p.signature { font-size: 2.2rem; line-height: 1.25; margin-bottom: 2rem; }
